@@ -143,8 +143,8 @@ impl Template {
     }
 }
 
-impl<'a> Template {
-    pub const ALL: &'a [Template] = &[
+impl Template {
+    pub const ALL: &[Template] = &[
         Template::Vanilla,
         Template::VanillaTs,
         Template::Vue,
@@ -371,7 +371,7 @@ impl<'a> Template {
             .collect::<Vec<_>>();
 
         let write_file = |file: &str, template_data| -> anyhow::Result<()> {
-            // remove the first component, which is certainly the template directory they were in before getting embeded into the binary
+            // remove the first component, which is certainly the template directory they were in before getting embedded into the binary
             let p = path::PathBuf::from(file)
                 .components()
                 .skip(1)
